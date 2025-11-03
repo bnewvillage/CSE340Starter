@@ -1,6 +1,216 @@
 /******* Change Box Model ***************/
 *,
 *:before,
-*:after {
-  box-sizing: border-box;
+*:after { box-sizing: border-box; }
+
+html {
+  background-image: url("/images/site/checkerboard.jpg");
+  background-size: 400px;
+  background-position: center;
+  background-repeat: repeat;
 }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #fff;
+  color: #000;
+  max-width: none;        /* mobile: full width */
+  margin: 0 auto;
+}
+
+.welcomeMessage { margin-left: 1rem; }
+
+#top-header {
+  background-color: #fff;
+  border-bottom: 2px solid #00bcd4;
+  font-family: "Segoe UI", Arial, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.siteName a {
+  color: #111;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+#tools a {
+  color: #555;
+  font-size: 0.85rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+#tools a:hover { color: #00bcd4; }
+
+nav { background-color: #1a1a1a; }
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  padding: 0.8rem 0;
+  text-align: center;
+  flex: 1;
+  color: #fff;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+nav li:hover { background-color: #00bcd4; color: #000; }
+
+/* ---------- HERO (mobile base) ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  width: 100%;
+  height: 30vh;
+  margin: 0 auto 2rem auto;
+}
+.hero img {
+  width: 70%;
+  border-radius: 5px;
+  justify-content: center;
+}
+#heroOverlay{
+  position: absolute;
+  top: 0; left: 0;
+  width: 40%;
+  background-color: rgba(255,255,255,0.5);
+  text-align: left;
+  color:#09b7c6;
+  padding: 1rem;
+}
+
+.hero h2 { margin: 0; font-size: 1.8rem; }
+.hero p { font-size: 1rem; line-height: 1.5; }
+.hero p img{ margin:1rem auto; }
+
+/* ---------- SECTIONS (mobile base) ---------- */
+.sectionsWrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "review"
+    "upgrades";
+  gap: 16px;
+  margin: 0 auto;
+}
+.sectionsWrapper > * { min-width: 0; }
+
+.reviewsSection{ grid-area: review; }
+.upgradesSection{ grid-area: upgrades; }
+
+.upgradesSection,
+.reviewsSection {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 1.25rem;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+/* Headings */
+.upgradesSection::before {
+  content: "Delorean Upgrades";
+  display: block;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.reviewsSection::before {
+  content: "DMC Delorean Reviews";
+  display: block;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Upgrades grid (mobile: fluid) */
+.upgradesList{
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 14px 14px;
+  padding: 0;
+  margin: 0;
+}
+.upgradeCard { text-align: center; }
+.imageBox{
+  background: #09b7c6;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90px;
+  max-height: 120px;
+}
+.imageBox img{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+.upgradeCard h3{
+  margin-top: 8px;
+  font-size: 1rem;
+  color: #0a58ca;
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Reviews list */
+.reviewsList { list-style-type: disc; padding-left: 1.5rem; }
+.reviewsList li { margin-bottom: 2rem; font-size: 1rem; }
+
+/* ---------- MEDIUM SCREENS ---------- */
+@media (min-width: 768px){
+  body { max-width: 900px; margin: 0 auto; }
+
+  .hero { width: 80%; height: auto; }
+  #heroOverlay { width: 300px; }
+
+  .sectionsWrapper{
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;   /* keep your order */
+    gap: 24px;
+  }
+  .upgradesSection{ width: 50%; }
+  .reviewsSection{
+    width: 45%;
+    margin-left: 2%;
+  }
+
+  /* desktop-style card grid (two fixed columns that won’t overflow) */
+  .upgradesList{
+    grid-template-columns: repeat(2, 200px);
+    gap: 18px 22px;
+    justify-content: start;
+  }
+}
+
+/* ---------- LARGE SCREENS ---------- */
+@media (min-width: 1200px){
+  .hero { width: 70%; }
+
+  /* keep same layout; you can widen columns later if desired */
+  .upgradesList{
+    grid-template-columns: repeat(2, 200px);
+  }
+}
+
