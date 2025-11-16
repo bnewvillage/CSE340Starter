@@ -26,7 +26,7 @@ app.set("layout", "./layouts/layout") // not at views root
 app.use(static)
 
 //Index route
-app.get("/",baseConstroller.buildHome)
+app.get("/",baseController.buildHome)
 app.use("/inv", inventoryRoute)
 
 /* ***********************
@@ -39,6 +39,6 @@ const host = process.env.HOST
 /* ***********************
  * Log statement to confirm server operation
  *************************/
-app.listen(port, () => {
+app.listen(port,() => {
   console.log(`app listening on ${host}:${port}`)
 })
