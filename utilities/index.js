@@ -74,6 +74,41 @@ Util.buildClassificationGrid = async function (data) {
   return grid
 };
 
+//BUILD ITEM DETAILS
+Util.buildInventoryItem = async function (item) {
+  if (!item) {
+    return '<p class="notice">Sorry, the vehicle could not be found.</p>';
+  }
+
+  let detailHTML = '<div class="inv-detail">';
+  
+  // Year, Make, Model
+  detailHTML += `<h1>${item.inv_year} ${item.inv_make} ${item.inv_model}</h1>`;
+  
+  // Image
+  detailHTML += `<img src="${item.inv_image}" alt="Image of ${item.inv_year} ${item.inv_make} ${item.inv_model}" />`;
+  
+  // Make Model link (optional)
+  detailHTML += `<h2>"${item.inv_make} ${item.inv_model} details"</h2>`;
+  
+  // Price
+  detailHTML += `<p class="price">$${new Intl.NumberFormat("en-US").format(item.inv_price)}</p>`;
+  
+  // Description
+  detailHTML += `<p><strong>Description:</strong> ${item.inv_description}</p>`;
+  
+  // Color
+  detailHTML += `<p><strong>Color:</strong> ${item.inv_color}</p>`;
+  
+  // Miles
+  detailHTML += `<p><strong>Miles:</strong> ${new Intl.NumberFormat("en-US").format(item.inv_miles)}</p>`;
+  
+  detailHTML += '</div>';
+  
+  return detailHTML;
+};
+
+
 module.exports = Util;
 
 /*
