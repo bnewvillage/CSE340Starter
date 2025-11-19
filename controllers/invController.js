@@ -21,6 +21,11 @@ invCont.buildByClassificationId = async function (req, res, next) {
 
 invCont.buildByInventoryId = async function(req, res, next){
     const inv_id = req.params.inv_id
+    if (inv_id == 999) {
+        const error = new Error("Intentional Error")
+        error.status = 500
+        return next(error);
+    } else {
     const data = await invModel.getItemByInventoryId(inv_id)
     const itemDetail = await utilities.buildInventoryItem(data[0])
     const inv_model = await data[0].inv_model
@@ -30,6 +35,7 @@ invCont.buildByInventoryId = async function(req, res, next){
         nav,
         itemDetail
     })
+}
 }
 
 module.exports = invCont

@@ -82,34 +82,25 @@ Util.buildInventoryItem = async function (item) {
 
   let detailHTML = '<div class="inv-detail">';
   
-  // Year, Make, Model
+  // LEFT SIDE
+  detailHTML += `<div class="inv-detail-left">`;
   detailHTML += `<h1>${item.inv_year} ${item.inv_make} ${item.inv_model}</h1>`;
-  
-  // Image
   detailHTML += `<img src="${item.inv_image}" alt="Image of ${item.inv_year} ${item.inv_make} ${item.inv_model}" />`;
-  
-  // Make Model link (optional)
-  detailHTML += `<h2>"${item.inv_make} ${item.inv_model} details"</h2>`;
-  
-  // Price
+  detailHTML += `</div>`;
+
+  // RIGHT SIDE
+  detailHTML += `<div class="inv-detail-text">`;
   detailHTML += `<p class="price">$${new Intl.NumberFormat("en-US").format(item.inv_price)}</p>`;
-  
-  // Description
   detailHTML += `<p><strong>Description:</strong> ${item.inv_description}</p>`;
-  
-  // Color
   detailHTML += `<p><strong>Color:</strong> ${item.inv_color}</p>`;
-  
-  // Miles
   detailHTML += `<p><strong>Miles:</strong> ${new Intl.NumberFormat("en-US").format(item.inv_miles)}</p>`;
-  
+  detailHTML += `</div>`;
+
   detailHTML += '</div>';
   
   return detailHTML;
 };
 
-
-module.exports = Util;
 
 /*
 * Middleware fod handling errors
@@ -118,3 +109,5 @@ module.exports = Util;
 */
 
 Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req , res, next)).catch(next)
+
+module.exports = Util;
