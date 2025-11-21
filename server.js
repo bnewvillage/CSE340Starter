@@ -38,6 +38,13 @@ app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout") // not at views root
 
+// Express Messages Middleware
+app.use(require('connect-flash')())
+app.use(function(req,res,next){
+  res.locals.messages = require('express-messages')(req,res)
+  next()
+})
+
 /* ***********************
  * Routes
  *************************/
@@ -46,9 +53,6 @@ app.use(static)
 //Index route
 app.get("/",utilities.handleErrors(baseController.buildHome))
 app.use("/inv", inventoryRoute)
-
-
-
 
 //File not found route - must be last route
 app.use(async (req, res, next)  =>{
