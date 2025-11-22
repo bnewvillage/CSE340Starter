@@ -530,3 +530,134 @@ nav li:hover {
   transform: translateY(-2px);
   outline: none;
 }
+
+/*BUILD THE LOGIN FORM*/
+/* Auth page layout */
+.auth-page {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+/* Card wrapper */
+.auth-card {
+  background-color: #fff;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  border-top: 4px solid #00bcd4;
+}
+
+/* Title */
+.auth-title {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #00bcd4;
+}
+
+/* Form fields */
+.auth-form {
+  width: 100%;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* label and input left aligned */
+  margin-bottom: 1rem;
+}
+
+.auth-field label {
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  color: #333;
+}
+
+.auth-field input {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+/* Login button - centered */
+.auth-button {
+  display: block;
+  margin: 1.2rem auto 0 auto; /* center horizontally */
+  padding: 0.6rem 2.5rem;
+  border-radius: 999px;
+  border: none;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  background-color: #00bcd4;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Simple hover effect */
+.auth-button:hover,
+.auth-button:focus {
+  background-color: #00a3b4;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0, 188, 212, 0.5);
+  outline: none;
+}
+
+/* Footer text */
+.auth-footer-text {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.auth-link {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/*REGISTER FORM*/
+.password-requirements {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.2rem;
+  font-size: 0.85rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+.password-requirements li {
+  margin-bottom: 0.2rem;
+}
+
+.auth-button-left {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.6rem 2rem;
+  border-radius: 999px;
+  border: none;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  background-color: #00bcd4;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.auth-button-left:hover,
+.auth-button-left:focus {
+  background-color: #00a3b4;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0, 188, 212, 0.5);
+  outline: none;
+}

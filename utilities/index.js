@@ -102,6 +102,7 @@ Util.buildInventoryItem = async function (item) {
 };
 
 
+
 /*
 * Middleware fod handling errors
 * Wrap other function in this
