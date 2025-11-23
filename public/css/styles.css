@@ -661,3 +661,15 @@ nav li:hover {
   box-shadow: 0 3px 8px rgba(0, 188, 212, 0.5);
   outline: none;
 }
+
+/*Input Validation*/
+input:required:invalid, input:focus:invalid {
+ background-image: url(/images/invalid.png);
+ background-position: right top;
+ background-repeat: no-repeat;
+}
+ input:required:valid {
+ background-image: url(/images/valid.png);
+ background-position: right top;
+ background-repeat: no-repeat;
+ }
