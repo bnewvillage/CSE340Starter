@@ -673,3 +673,131 @@ input:required:invalid, input:focus:invalid {
  background-position: right top;
  background-repeat: no-repeat;
  }
+
+ /* Inventory Admin Root Page */
+.inv-admin-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 350px;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  border-top: 4px solid #00bcd4;
+  text-align: center;
+}
+
+.inv-admin-btn {
+  display: block;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #00bcd4;
+  color: #000;
+  transition: background-color 0.25s, transform 0.2s, box-shadow 0.2s;
+}
+
+.inv-admin-btn:hover,
+.inv-admin-btn:focus {
+  background-color: #00a3b4;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,188,212,0.5);
+  outline: none;
+}
+
+.inv-admin-links + h1,
+h1 {
+  text-align: center;
+  margin-top: 2rem;
+  color: #00bcd4;
+}
+
+/* ------------------------------ */
+/* Add Classification Form Styles */
+/* ------------------------------ */
+
+.add-details-page {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+/* Card wrapper (matches .auth-card exactly) */
+.add-details-card {
+  background-color: #fff;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  border-top: 4px solid #00bcd4;
+}
+
+/* Title */
+.add-details-title {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #00bcd4;
+}
+
+/* Form */
+.add-details-form {
+  width: 100%;
+}
+
+/* Field wrapper (mirrors .auth-field) */
+.add-details-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+/* Labels */
+.add-details-field label {
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+  color: #333;
+}
+
+/* Input fields */
+.add-details-field input {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+/* Small instructional text */
+.add-details-hint {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 0.4rem;
+  line-height: 1.4;
+}
+
+.add-details-field select,
+.add-details-field textarea {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+#inv_description {
+  min-height: 100px;
+  max-height: 100px;
+  resize: none;
+}

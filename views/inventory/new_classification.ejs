@@ -1,0 +1,34 @@
+<main class="add-details-page">
+    <section class="add-details-card">
+        <h2 class="add-details-title"><%- title %></h2>
+        <%- messages() %>
+        <% if (errors) { %>
+            <ul class="notice">
+            <% errors.array().forEach(error => { %>
+                <li><%= error.msg %></li>
+            <% }) %>
+            </ul>
+        <% } %>
+
+        <form action="/inv/new_classification" method="post" class="add-details-form">
+
+            <div class="add-details-field">
+                <label for="classification_name">New Classification Name</label>
+                <input 
+                    type="text" 
+                    id="classification_name" 
+                    name="classification_name" 
+                    required
+                    pattern="^[A-Za-z0-9]+$"
+                    value="<%= locals.classification_name %>"
+                />
+                <p class="add-details-hint">
+                    Classification names may only contain letters and numbers.
+                </p>
+            </div>
+
+            <button type="submit" class="auth-button-left">Add Classification</button>
+
+        </form>
+    </section>
+</main>
