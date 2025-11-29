@@ -101,10 +101,12 @@ validate.checkInventoryData = async function (req, res, next) {
   errors = validationResult(req);
   if (!errors.isEmpty()) {
     let nav = await utilities.getNav();
-    res.render("inventory/new_classification", {
+    let classificationList = await utilities.buildClassificationList();
+    res.render("inventory/new_inventory", {
       errors,
       title: "Add New Inventory",
       nav,
+      classificationList,
       classification_id,
       inv_make,
       inv_model,
