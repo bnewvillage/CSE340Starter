@@ -1,6 +1,7 @@
 const invModel = require("../models/inventory-model")
 const Util = {}
-
+const jwt = require("jsonwebtoken")
+require("dotenv").config()
 
 /* ************************
  * Constructs the nav HTML unordered list
@@ -127,6 +128,31 @@ Util.buildClassificationList = async function (classification_id = null) {
 * Wrap other function in this
 * for generatl error handling
 */
+
+/* ****************************************
+* Middleware to check token validity
+**************************************** */
+Util.checkJWTToken = (req, res, next) => {
+  if (req.cookies.jwt) {
+    jwt.verify(
+      req.cookies.jwt,
+      process.env_ACCESS_TOKEN_SECRET,
+      function (err, accounData) {
+        if (err) {
+          req.flash("Please log in")
+          res.clearCookie("jwt")
+          return redirect("/account/login")
+        }
+        res.locals.accountData = accountData
+        res.locals.loggedin = 1
+        next()
+      }
+    )
+  } else {
+    next()
+  }
+}
+
 
 Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req , res, next)).catch(next)
 

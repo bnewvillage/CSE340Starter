@@ -17,11 +17,12 @@ const utilities = require("./utilities/index")
 const session = require("express-session")
 const pool = require('./database/')
 const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")
 
 /* ***********************
  * Middleware
  * ************************/
-
+app.use(cookieParser())
 app.use(session({
   store: new (require('connect-pg-simple')(session))({
     createTableIfMissing: true,
@@ -34,7 +35,9 @@ app.use(session({
 }))
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: true})) // for parsing application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(utilities.checkJWTToken)
+ // for parsing application/x-www-form-urlencoded
 
 /* ***********************
 * View Engine and Templates
