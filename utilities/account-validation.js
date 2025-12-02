@@ -62,7 +62,6 @@ validate.loginRules = () => {
         // Email is required and must be valid
         body("account_email")
             .trim()
-            .escape()
             .notEmpty()
             .withMessage("Email is required.")
             .isEmail()
@@ -105,8 +104,8 @@ validate.checkRegData = async (req, res, next) => {
  * ***************************** */
 validate.checkLoginData = async (req, res, next) => {
     const { account_email } = req.body
-
-    let errors = validationResult(req)
+    let errors = []
+    errors = validationResult(req)
 
     if (!errors.isEmpty()) {
         let nav = await utilities.getNav()

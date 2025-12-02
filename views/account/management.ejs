@@ -1,6 +1,22 @@
-<main class="account-page">
-  <section class="account-card">
+<main class="auth-page">
+  <section class="auth-card">
+    <h2 class="auth-title">Account</h2>
     <%- messages() %>
-    
+    <% if (errors) { %>
+        <ul class="notice">
+        <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+        <%  }) %>
+        </ul>
+    <% } %>
+
+    <div class="auth-content">
+      <p class="auth-message">You're logged in ✅</p>
+    </div>
+
+    <p class="auth-footer-text">
+      <a href="/account/logout" class="auth-link">Logout</a>
+    </p>
+
   </section>
 </main>

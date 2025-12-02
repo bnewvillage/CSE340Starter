@@ -4,3 +4,20 @@
   <a href="/inv/new_classification" class="inv-admin-btn">Add New Classification</a>
   <a href="/inv/new_inventory" class="inv-admin-btn">Add New Vehicle</a>
 </div>
+
+<div class="inv-manage">
+  <h2>Manage Inventory</h2>
+
+  <div class="inv-manage__filter">
+    <label for="classificationList">Classification</label>
+    <%- classificationList %>
+  </div>
+
+  <div class="inv-manage__table-wrapper">
+    <table id="inventoryDisplay"></table>
+  </div>
+
+  <noscript>Javascript must be enabled to use this page.</noscript>
+</div>
+
+<script src="../../js/inventory.js"></script>

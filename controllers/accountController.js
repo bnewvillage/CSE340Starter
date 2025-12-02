@@ -10,6 +10,7 @@ accountController.buildManagement = async function (req, res) {
     let nav = await utilities.getNav()
     res.render("./account/management", {
         title: "Account",
+        errors: null,
         nav,
     })
 }
@@ -19,6 +20,7 @@ accountController.buildLogin = async function(req, res){
   let nav = await utilities.getNav()
   res.render("./account/login",{
     title: "Login",
+    errors:null,
     nav,
   })
 }
@@ -66,6 +68,7 @@ accountController.registerAccount = async function (req,res){
         )
         res.status(201).render("account/login", {
             title: "Login",
+            errors: null,
             nav,
         })
     } else {
@@ -75,7 +78,7 @@ accountController.registerAccount = async function (req,res){
         res.status(501).render("account/register", {
             title: "Registration",
             nav,
-            error: null,
+            errors: null,
         })
     }
 }
@@ -83,7 +86,7 @@ accountController.registerAccount = async function (req,res){
 /* ****************************************
  *  Process login request
  * ************************************ */
-async function accountLogin(req, res) {
+accountController.accountLogin = async function (req, res) {
   let nav = await utilities.getNav()
   const { account_email, account_password } = req.body
   const accountData = await accountModel.getAccountByEmail(account_email)
@@ -109,7 +112,7 @@ async function accountLogin(req, res) {
       return res.redirect("/account/")
     }
     else {
-      req.flash("message notice", "Please check your credentials and try again.")
+      req.flash("notice", "Please check your credentials and try again.")
       res.status(400).render("account/login", {
         title: "Login",
         nav,

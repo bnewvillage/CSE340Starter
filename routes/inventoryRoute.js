@@ -35,8 +35,29 @@ router.get(
 );
 
 //Add new inventory item to database
-router.post("/new_inventory", invValidate.inventoryRules(),
-invValidate.checkInventoryData,
-utilities.handleErrors(invController.addInventory));
+router.post(
+  "/new_inventory",
+  invValidate.inventoryRules(),
+  invValidate.checkInventoryData,
+  utilities.handleErrors(invController.addInventory)
+);
+
+router.get(
+  "/getInventory/:classification_id",
+  utilities.handleErrors(invController.getInventoryJSON)
+);
+
+router.get(
+  "/edit/:inv_id",
+  utilities.handleErrors(invController.editInventoryView)
+);
+
+//Update inventory item to database
+router.post(
+  "/edit/:inv_id",
+  invValidate.inventoryRules(),
+  invValidate.checkUpdateData,
+  utilities.handleErrors(invController.updateInventory)
+);
 
 module.exports = router;

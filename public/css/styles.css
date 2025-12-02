@@ -720,7 +720,8 @@ h1 {
 /* Add Classification Form Styles */
 /* ------------------------------ */
 
-.add-details-page {
+.add-details-page,
+.edit-details-page {
   min-height: 60vh;
   display: flex;
   justify-content: center;
@@ -729,7 +730,8 @@ h1 {
 }
 
 /* Card wrapper (matches .auth-card exactly) */
-.add-details-card {
+.add-details-card,
+.edit-details-card {
   background-color: #fff;
   border-radius: 10px;
   max-width: 400px;
@@ -740,7 +742,8 @@ h1 {
 }
 
 /* Title */
-.add-details-title {
+.add-details-title,
+.edit-details-title {
   margin-top: 0;
   margin-bottom: 1.5rem;
   font-size: 1.8rem;
@@ -749,12 +752,14 @@ h1 {
 }
 
 /* Form */
-.add-details-form {
+.add-details-form,
+.edit-details-form {
   width: 100%;
 }
 
 /* Field wrapper (mirrors .auth-field) */
-.add-details-field {
+.add-details-field,
+.edit-details-field {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -762,14 +767,16 @@ h1 {
 }
 
 /* Labels */
-.add-details-field label {
+.add-details-field label,
+.edit-details-field label {
   font-size: 0.95rem;
   margin-bottom: 0.4rem;
   color: #333;
 }
 
 /* Input fields */
-.add-details-field input {
+.add-details-field input,
+.edit-details-field input {
   width: 100%;
   padding: 0.5rem 0.6rem;
   border-radius: 4px;
@@ -778,7 +785,8 @@ h1 {
 }
 
 /* Small instructional text */
-.add-details-hint {
+.add-details-hint,
+.edit-details-hint {
   font-size: 0.85rem;
   color: #555;
   margin-top: 0.4rem;
@@ -786,7 +794,9 @@ h1 {
 }
 
 .add-details-field select,
-.add-details-field textarea {
+.add-details-field textarea,
+.edit-details-field select,
+.edit-details-field textarea {
   width: 100%;
   padding: 0.5rem 0.6rem;
   border-radius: 4px;
@@ -800,4 +810,141 @@ h1 {
   min-height: 100px;
   max-height: 100px;
   resize: none;
+}
+
+/* ----------------------------- */
+/* Inventory Management (Admin)  */
+/* ----------------------------- */
+
+.inv-manage {
+  max-width: 900px;
+  width:80%;
+  margin: 0 auto 3rem auto;
+  padding: 1.5rem 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+  border-top: 4px solid #00bcd4;
+}
+
+/* Title to match other cards/auth titles */
+.inv-manage h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #00bcd4;
+}
+
+/* Filter row (label + select) */
+.inv-manage__filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.inv-manage__filter label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.inv-manage__filter select,
+#classificationList {
+  min-width: 200px;
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+/* Table wrapper for horizontal scroll on small screens */
+.inv-manage__table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Inventory table styling */
+#inventoryDisplay {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+}
+
+#inventoryDisplay thead {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+#inventoryDisplay thead th,
+#inventoryDisplay thead td {
+  padding: 0.75rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #00bcd4;
+}
+
+#inventoryDisplay tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#inventoryDisplay tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+#inventoryDisplay td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+/* Slight hover to echo card hover feel */
+#inventoryDisplay tbody tr:hover {
+  background-color: #e8f8fb;
+}
+
+/* Action links (Modify / Delete) */
+#inventoryDisplay a {
+  font-weight: 600;
+  text-decoration: underline;
+  color: #0a58ca;
+  font-size: 0.9rem;
+}
+
+#inventoryDisplay a:hover,
+#inventoryDisplay a:focus {
+  color: #00bcd4;
+  outline: none;
+}
+
+/* Make Modify/Delete columns a bit tighter on desktop */
+@media (min-width: 768px) {
+  #inventoryDisplay td:nth-child(2),
+  #inventoryDisplay td:nth-child(3),
+  #inventoryDisplay thead td:nth-child(2),
+  #inventoryDisplay thead td:nth-child(3) {
+    width: 110px;
+    text-align: center;
+  }
+}
+
+/* Small screens: stack filter nicely */
+@media (max-width: 480px) {
+  .inv-manage {
+    padding: 1.25rem 1rem;
+  }
+
+  .inv-manage__filter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .inv-manage__filter select,
+  #classificationList {
+    width: 100%;
+  }
 }
