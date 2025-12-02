@@ -246,4 +246,59 @@ invCont.updateInventory = async function (req, res) {
   }
 };
 
+/* ***************************
+ *  Build delete inventory view
+ * ************************** */
+invCont.deleteInventoryView = async function (req, res, next) {
+  const inv_id = parseInt(req.params.inv_id);
+  let nav = await utilities.getNav();
+  const itemData = await invModel.getItemByInventoryId(inv_id);
+  const itemName = `${itemData.inv_make} ${itemData.inv_model}`;
+  res.render("./inventory/delete_confirm", {
+    title: "Delete " + itemName,
+    nav,
+    errors: null,
+    inv_id: itemData.inv_id,
+    inv_make: itemData.inv_make,
+    inv_model: itemData.inv_model,
+    inv_price: itemData.inv_price,
+    inv_year: itemData.inv_year,
+  });
+
+
+};
+
+invCont.deleteInventory = async function (req, res) {
+  const {
+    inv_id,
+    inv_make,
+    inv_model,
+    inv_year,
+  } = req.body;
+  const updateResult = await invModel.deleteInventory(
+    inv_id,
+    inv_make,
+    inv_model,
+    inv_year,
+    
+  );
+  let nav = await utilities.getNav();
+  const itemName = `${inv_make} ${inv_model}`;
+  if (updateResult && updateResult.rowCount > 0) {
+    req.flash("notice", `The ${itemName} was successfully deleted.`);
+    res.status(201).render("inventory/delete_confirm", {
+      title: "Edit " + itemName,
+      nav,
+      errors: null,
+    });
+  } else {
+    req.flash("notice", "Unable to delete vehicle.");
+    res.status(501).render("inventory/delete_confirm", {
+      title: "Edit " + itemName,
+      nav,
+      errors: null,
+    });
+  }
+};
+
 module.exports = invCont;

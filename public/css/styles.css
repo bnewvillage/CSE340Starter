@@ -721,7 +721,8 @@ h1 {
 /* ------------------------------ */
 
 .add-details-page,
-.edit-details-page {
+.edit-details-page,
+.delete-details-page {
   min-height: 60vh;
   display: flex;
   justify-content: center;
@@ -731,7 +732,8 @@ h1 {
 
 /* Card wrapper (matches .auth-card exactly) */
 .add-details-card,
-.edit-details-card {
+.edit-details-card,
+.delete-details-card {
   background-color: #fff;
   border-radius: 10px;
   max-width: 400px;
@@ -743,7 +745,8 @@ h1 {
 
 /* Title */
 .add-details-title,
-.edit-details-title {
+.edit-details-title,
+.delete-details-title {
   margin-top: 0;
   margin-bottom: 1.5rem;
   font-size: 1.8rem;
@@ -753,13 +756,15 @@ h1 {
 
 /* Form */
 .add-details-form,
-.edit-details-form {
+.edit-details-form,
+ .delete-details-form{
   width: 100%;
 }
 
 /* Field wrapper (mirrors .auth-field) */
 .add-details-field,
-.edit-details-field {
+.edit-details-field,
+.delete-details-field {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -768,7 +773,8 @@ h1 {
 
 /* Labels */
 .add-details-field label,
-.edit-details-field label {
+.edit-details-field label,
+.delete-details-field label {
   font-size: 0.95rem;
   margin-bottom: 0.4rem;
   color: #333;
@@ -776,7 +782,8 @@ h1 {
 
 /* Input fields */
 .add-details-field input,
-.edit-details-field input {
+.edit-details-field input,
+.delete-details-field input{
   width: 100%;
   padding: 0.5rem 0.6rem;
   border-radius: 4px;
@@ -786,7 +793,8 @@ h1 {
 
 /* Small instructional text */
 .add-details-hint,
-.edit-details-hint {
+.edit-details-hint,
+.delete-details-hint {
   font-size: 0.85rem;
   color: #555;
   margin-top: 0.4rem;
@@ -796,7 +804,9 @@ h1 {
 .add-details-field select,
 .add-details-field textarea,
 .edit-details-field select,
-.edit-details-field textarea {
+.edit-details-field textarea,
+.delete-details-field select,
+.delete-details-field textarea  {
   width: 100%;
   padding: 0.5rem 0.6rem;
   border-radius: 4px;
