@@ -149,8 +149,27 @@ Util.checkJWTToken = (req, res, next) => {
       }
     )
   } else {
+    res.locals.accountData = null;
+    res.locals.loggedin = false
     next()
   }
+}
+
+/* ****************************************
+* Middleware to check user permissions
+**************************************** */
+Util.checkUserPermissions = (req, res, next) => {
+  const accountData = res.locals.accountData
+  const loggedin = res.locals.loggedin
+  if (!loggedin) {
+    req.flash("notice","Please log in")
+    return res.redirect("/account/login")
+  }
+  if (accountData.account_type !=="Employee" && accountData.account_type !=="Admin"){
+    req.flash("notice","You do not have permission to view that page.")
+    return res.redirect("/account/login")
+  }
+  next()
 }
 
 /* ****************************************

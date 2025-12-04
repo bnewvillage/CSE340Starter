@@ -958,3 +958,59 @@ h1 {
     width: 100%;
   }
 }
+
+/* Account Management / Auth styling tweaks */
+
+/* Welcome line – subtle, friendly */
+.auth-welcome-message {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  text-align: center;
+  color: #333;
+}
+
+/* Container for links + headings inside the card */
+.auth-content {
+  margin-top: 1.5rem;
+  border-top: 1px solid #eee;
+  padding-top: 1.25rem;
+}
+
+/* Group of links (update + inventory) */
+.auth-links {
+  margin: 0.5rem 0 0.75rem 0;
+  text-align: center;
+}
+
+/* Make auth links feel like part of the UI, not default text */
+.auth-links .auth-link {
+  display: inline-block;
+  margin: 0.25rem 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border: 1px solid #00bcd4;
+  background-color: #fff;
+  color: #00bcd4;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+/* Hover state to match buttons elsewhere */
+.auth-links .auth-link:hover,
+.auth-links .auth-link:focus {
+  background-color: #00bcd4;
+  color: #000;
+  box-shadow: 0 3px 8px rgba(0, 188, 212, 0.5);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+/* Slight tweak so the Account Management title doesn't fight the welcome */
+.auth-card .auth-title {
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+}

@@ -1,22 +1,37 @@
 <main class="auth-page">
   <section class="auth-card">
-    <h2 class="auth-title">Account</h2>
+    <h2 class="auth-welcome-message">
+      Welcome <%= accountData.account_firstname %>
+    </h2>
+
+    <h3 class="auth-title">Account Management</h3>
+
     <%- messages() %>
     <% if (errors) { %>
-        <ul class="notice">
+      <ul class="notice">
         <% errors.array().forEach(error => { %>
-        <li><%= error.msg %></li>
-        <%  }) %>
-        </ul>
+          <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
     <% } %>
 
     <div class="auth-content">
-      <p class="auth-message">You're logged in ✅</p>
+      <p class="auth-links">
+        <a class="auth-link" href="/account/update/<%= accountData.account_id %>">
+          Update Account Information
+        </a>
+      </p>
+
+      <% if (accountData.account_type === "Employee" || accountData.account_type === "Admin") { %>
+        <h3 class="auth-title">Inventory Management</h3>
+        <p class="auth-links">
+          <a class="auth-link" href="/inv">Inventory Management</a>
+        </p>
+      <% } %>
     </div>
 
     <p class="auth-footer-text">
       <a href="/account/logout" class="auth-link">Logout</a>
     </p>
-
   </section>
 </main>
