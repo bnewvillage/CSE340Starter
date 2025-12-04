@@ -1,7 +1,11 @@
+/* ===================== */
+/* Global / Base Styles  */
+/* ===================== */
+
 /* Box sizing */
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -21,17 +25,20 @@ body {
   max-width: none;
 }
 
-.welcomeMessage {
-  margin-left: 1rem;
-}
-
 a:link,
 a:visited {
   color: inherit;
   text-decoration: none;
 }
 
-/* Header */
+.welcomeMessage {
+  margin-left: 1rem;
+}
+
+/* ===================== */
+/* Header                */
+/* ===================== */
+
 #top-header {
   background-color: #fff;
   border-bottom: 2px solid #00bcd4;
@@ -62,7 +69,10 @@ a:visited {
   color: #00bcd4;
 }
 
-/* Nav */
+/* ===================== */
+/* Navigation            */
+/* ===================== */
+
 nav {
   background-color: #1a1a1a;
 }
@@ -89,7 +99,10 @@ nav li:hover {
   color: #000;
 }
 
-/* Hero */
+/* ===================== */
+/* Hero Section          */
+/* ===================== */
+
 .hero {
   display: flex;
   align-items: center;
@@ -131,7 +144,10 @@ nav li:hover {
   margin: 1rem auto;
 }
 
-/* Sections layout */
+/* ===================== */
+/* Main Sections Layout  */
+/* ===================== */
+
 .sectionsWrapper {
   display: grid;
   grid-template-columns: 1fr;
@@ -162,23 +178,26 @@ nav li:hover {
   overflow: hidden;
 }
 
-.upgradesSection::before {
-  content: "Delorean Upgrades";
+.upgradesSection::before,
+.reviewsSection::before {
   display: block;
   font-weight: bold;
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
+}
+
+.upgradesSection::before {
+  content: "Delorean Upgrades";
 }
 
 .reviewsSection::before {
   content: "DMC Delorean Reviews";
-  display: block;
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
 }
 
-/* Upgrades */
+/* ===================== */
+/* Upgrades grid         */
+/* ===================== */
+
 .upgradesList {
   list-style: none;
   display: grid;
@@ -218,7 +237,10 @@ nav li:hover {
   cursor: pointer;
 }
 
-/* Reviews */
+/* ===================== */
+/* Reviews list          */
+/* ===================== */
+
 .reviewsList {
   list-style-type: disc;
   padding-left: 1.5rem;
@@ -229,10 +251,13 @@ nav li:hover {
   font-size: 1rem;
 }
 
-/* Inventory grid */
+/* ===================== */
+/* Inventory Grid (list) */
+/* ===================== */
+
 #inv-display {
   display: grid;
-  grid-template-columns: 1fr; /* mobile: 1 column */
+  grid-template-columns: 1fr;
   gap: 16px;
   list-style: none;
   padding: 1rem;
@@ -277,67 +302,23 @@ nav li:hover {
   color: #1a7f1a;
 }
 
-/* Small / medium screens */
+/* Responsive inventory grid */
 @media (min-width: 600px) {
   #inv-display {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Medium screens */
-@media (min-width: 768px) {
-  body {
-    max-width: 900px;
-  }
-
-  .hero {
-    width: 80%;
-    height: auto;
-  }
-
-  #heroOverlay {
-    width: 300px;
-  }
-
-  .sectionsWrapper {
-    display: flex;
-    flex-direction: row-reverse;
-    gap: 24px;
-  }
-
-  .upgradesSection {
-    width: 50%;
-  }
-
-  .reviewsSection {
-    width: 45%;
-  }
-
-  .upgradesList {
-    grid-template-columns: repeat(2, 200px);
-    gap: 18px 22px;
-    justify-content: start;
-  }
-}
-
-/* Large screens */
 @media (min-width: 900px) {
   #inv-display {
-    grid-template-columns: repeat(3, 1fr); /* desktop: 3 columns */
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (min-width: 1200px) {
-  .hero {
-    width: 70%;
-  }
+/* ===================== */
+/* Inventory Detail Page */
+/* ===================== */
 
-  .upgradesList {
-    grid-template-columns: repeat(2, 200px);
-  }
-}
-
-/* Inventory detail page */
 .inv-detail {
   max-width: 1000px;
   margin: 2rem auto;
@@ -420,7 +401,10 @@ nav li:hover {
   }
 }
 
-/* Footer */
+/* ===================== */
+/* Footer                */
+/* ===================== */
+
 .site-footer {
   margin-top: 3rem;
   padding: 1rem 1.5rem;
@@ -478,7 +462,10 @@ nav li:hover {
   outline: none;
 }
 
-/* Error page */
+/* ===================== */
+/* Error Page            */
+/* ===================== */
+
 .error-page {
   display: flex;
   justify-content: center;
@@ -531,9 +518,15 @@ nav li:hover {
   outline: none;
 }
 
-/*BUILD THE LOGIN FORM*/
-/* Auth page layout */
-.auth-page {
+/* ===================== */
+/* Auth & Account Views  */
+/* ===================== */
+
+/* Page layout for login, register, account management, add/edit/delete classification, etc. */
+.auth-page,
+.add-details-page,
+.edit-details-page,
+.delete-details-page {
   min-height: 60vh;
   display: flex;
   justify-content: center;
@@ -542,7 +535,10 @@ nav li:hover {
 }
 
 /* Card wrapper */
-.auth-card {
+.auth-card,
+.add-details-card,
+.edit-details-card,
+.delete-details-card {
   background-color: #fff;
   border-radius: 10px;
   max-width: 400px;
@@ -552,45 +548,134 @@ nav li:hover {
   border-top: 4px solid #00bcd4;
 }
 
-/* Title */
-.auth-title {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
+/* Titles (login/register/account/add/edit/delete) */
+.auth-title,
+.add-details-title,
+.edit-details-title,
+.delete-details-title {
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
   font-size: 1.8rem;
   text-align: center;
   color: #00bcd4;
 }
 
-/* Form fields */
-.auth-form {
+/* Welcome line on account management */
+.auth-welcome-message {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  text-align: center;
+  color: #333;
+}
+
+/* Shared form wrapper */
+.auth-form,
+.add-details-form,
+.edit-details-form,
+.delete-details-form {
   width: 100%;
 }
 
-.auth-field {
+/* Field layout */
+.auth-field,
+.add-details-field,
+.edit-details-field,
+.delete-details-field {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* label and input left aligned */
+  align-items: flex-start;
   margin-bottom: 1rem;
 }
 
-.auth-field label {
+.auth-field label,
+.add-details-field label,
+.edit-details-field label,
+.delete-details-field label {
   font-size: 0.95rem;
   margin-bottom: 0.4rem;
   color: #333;
 }
 
-.auth-field input {
+.auth-field input,
+.add-details-field input,
+.edit-details-field input,
+.delete-details-field input,
+.add-details-field select,
+.add-details-field textarea,
+.edit-details-field select,
+.edit-details-field textarea,
+.delete-details-field select,
+.delete-details-field textarea {
   width: 100%;
   padding: 0.5rem 0.6rem;
   border-radius: 4px;
   border: 1px solid #ccc;
   font-size: 0.95rem;
+  font-family: inherit;
 }
 
-/* Login button - centered */
-.auth-button {
-  display: block;
-  margin: 1.2rem auto 0 auto; /* center horizontally */
+/* Small helper text */
+.add-details-hint,
+.edit-details-hint,
+.delete-details-hint {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 0.4rem;
+  line-height: 1.4;
+}
+
+/* Account management content area */
+.auth-content {
+  margin-top: 1.5rem;
+  border-top: 1px solid #eee;
+  padding-top: 1.25rem;
+}
+
+/* Group of links inside auth/account card */
+.auth-links {
+  margin: 0.5rem 0 0.75rem 0;
+  text-align: center;
+}
+
+/* Primary links used in auth/account UIs */
+.auth-link {
+  display: inline-block;
+  margin: 0.25rem 0.4rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+  text-decoration: none;
+  border: 1px solid #00bcd4;
+  background-color: #fff;
+  color: #00bcd4;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.auth-link:hover,
+.auth-link:focus {
+  background-color: #00bcd4;
+  color: #000;
+  box-shadow: 0 3px 8px rgba(0, 188, 212, 0.5);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+/* Footer text under auth cards */
+.auth-footer-text {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Primary buttons (login, register, etc.) */
+.auth-button,
+.auth-button-left {
+  display: inline-block;
+  margin-top: 1.2rem;
   padding: 0.6rem 2.5rem;
   border-radius: 999px;
   border: none;
@@ -604,28 +689,24 @@ nav li:hover {
   transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
-/* Simple hover effect */
+/* Center the main auth button (e.g. login) */
+.auth-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .auth-button:hover,
-.auth-button:focus {
+.auth-button:focus,
+.auth-button-left:hover,
+.auth-button-left:focus {
   background-color: #00a3b4;
   transform: translateY(-2px);
   box-shadow: 0 3px 8px rgba(0, 188, 212, 0.5);
   outline: none;
 }
 
-/* Footer text */
-.auth-footer-text {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.auth-link {
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-/*REGISTER FORM*/
+/* Password requirements list */
 .password-requirements {
   margin: 0.5rem 0 0 0;
   padding-left: 1.2rem;
@@ -638,43 +719,24 @@ nav li:hover {
   margin-bottom: 0.2rem;
 }
 
-.auth-button-left {
-  display: inline-block;
-  margin-top: 1.2rem;
-  padding: 0.6rem 2rem;
-  border-radius: 999px;
-  border: none;
-  font-weight: bold;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  background-color: #00bcd4;
-  color: #000;
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+/* Input validation icons */
+input:required:invalid,
+input:focus:invalid {
+  background-image: url(/images/invalid.png);
+  background-position: right top;
+  background-repeat: no-repeat;
 }
 
-.auth-button-left:hover,
-.auth-button-left:focus {
-  background-color: #00a3b4;
-  transform: translateY(-2px);
-  box-shadow: 0 3px 8px rgba(0, 188, 212, 0.5);
-  outline: none;
+input:required:valid {
+  background-image: url(/images/valid.png);
+  background-position: right top;
+  background-repeat: no-repeat;
 }
 
-/*Input Validation*/
-input:required:invalid, input:focus:invalid {
- background-image: url(/images/invalid.png);
- background-position: right top;
- background-repeat: no-repeat;
-}
- input:required:valid {
- background-image: url(/images/valid.png);
- background-position: right top;
- background-repeat: no-repeat;
- }
+/* =============================== */
+/* Inventory Admin Root Page Links */
+/* =============================== */
 
- /* Inventory Admin Root Page */
 .inv-admin-links {
   display: flex;
   flex-direction: column;
@@ -684,7 +746,7 @@ input:required:invalid, input:focus:invalid {
   padding: 1.5rem;
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
   border-top: 4px solid #00bcd4;
   text-align: center;
 }
@@ -705,10 +767,11 @@ input:required:invalid, input:focus:invalid {
 .inv-admin-btn:focus {
   background-color: #00a3b4;
   transform: translateY(-2px);
-  box-shadow: 0 3px 8px rgba(0,188,212,0.5);
+  box-shadow: 0 3px 8px rgba(0, 188, 212, 0.5);
   outline: none;
 }
 
+/* Global h1 styling (and h1 directly after .inv-admin-links) */
 .inv-admin-links + h1,
 h1 {
   text-align: center;
@@ -716,128 +779,21 @@ h1 {
   color: #00bcd4;
 }
 
-/* ------------------------------ */
-/* Add Classification Form Styles */
-/* ------------------------------ */
-
-.add-details-page,
-.edit-details-page,
-.delete-details-page {
-  min-height: 60vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 1rem;
-}
-
-/* Card wrapper (matches .auth-card exactly) */
-.add-details-card,
-.edit-details-card,
-.delete-details-card {
-  background-color: #fff;
-  border-radius: 10px;
-  max-width: 400px;
-  width: 100%;
-  padding: 2rem 2.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  border-top: 4px solid #00bcd4;
-}
-
-/* Title */
-.add-details-title,
-.edit-details-title,
-.delete-details-title {
-  margin-top: 0;
-  margin-bottom: 1.5rem;
-  font-size: 1.8rem;
-  text-align: center;
-  color: #00bcd4;
-}
-
-/* Form */
-.add-details-form,
-.edit-details-form,
- .delete-details-form{
-  width: 100%;
-}
-
-/* Field wrapper (mirrors .auth-field) */
-.add-details-field,
-.edit-details-field,
-.delete-details-field {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 1rem;
-}
-
-/* Labels */
-.add-details-field label,
-.edit-details-field label,
-.delete-details-field label {
-  font-size: 0.95rem;
-  margin-bottom: 0.4rem;
-  color: #333;
-}
-
-/* Input fields */
-.add-details-field input,
-.edit-details-field input,
-.delete-details-field input{
-  width: 100%;
-  padding: 0.5rem 0.6rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  font-size: 0.95rem;
-}
-
-/* Small instructional text */
-.add-details-hint,
-.edit-details-hint,
-.delete-details-hint {
-  font-size: 0.85rem;
-  color: #555;
-  margin-top: 0.4rem;
-  line-height: 1.4;
-}
-
-.add-details-field select,
-.add-details-field textarea,
-.edit-details-field select,
-.edit-details-field textarea,
-.delete-details-field select,
-.delete-details-field textarea  {
-  width: 100%;
-  padding: 0.5rem 0.6rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  font-size: 0.95rem;
-  font-family: inherit;
-  box-sizing: border-box;
-}
-
-#inv_description {
-  min-height: 100px;
-  max-height: 100px;
-  resize: none;
-}
-
-/* ----------------------------- */
-/* Inventory Management (Admin)  */
-/* ----------------------------- */
+/* ============================== */
+/* Inventory Management (Admin)   */
+/* ============================== */
 
 .inv-manage {
   max-width: 900px;
-  width:80%;
+  width: 80%;
   margin: 0 auto 3rem auto;
   padding: 1.5rem 2rem;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
   border-top: 4px solid #00bcd4;
 }
 
-/* Title to match other cards/auth titles */
 .inv-manage h2 {
   margin-top: 0;
   margin-bottom: 1.5rem;
@@ -959,58 +915,51 @@ h1 {
   }
 }
 
-/* Account Management / Auth styling tweaks */
+/* ===================== */
+/* Layout tweaks         */
+/* ===================== */
 
-/* Welcome line – subtle, friendly */
-.auth-welcome-message {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-size: 1.4rem;
-  text-align: center;
-  color: #333;
+@media (min-width: 768px) {
+  body {
+    max-width: 900px;
+  }
+
+  .hero {
+    width: 80%;
+    height: auto;
+  }
+
+  #heroOverlay {
+    width: 300px;
+  }
+
+  .sectionsWrapper {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 24px;
+  }
+
+  .upgradesSection {
+    width: 50%;
+  }
+
+  .reviewsSection {
+    width: 45%;
+  }
+
+  .upgradesList {
+    grid-template-columns: repeat(2, 200px);
+    gap: 18px 22px;
+    justify-content: start;
+  }
 }
 
-/* Container for links + headings inside the card */
-.auth-content {
-  margin-top: 1.5rem;
-  border-top: 1px solid #eee;
-  padding-top: 1.25rem;
-}
+@media (min-width: 1200px) {
+  .hero {
+    width: 70%;
+  }
 
-/* Group of links (update + inventory) */
-.auth-links {
-  margin: 0.5rem 0 0.75rem 0;
-  text-align: center;
-}
-
-/* Make auth links feel like part of the UI, not default text */
-.auth-links .auth-link {
-  display: inline-block;
-  margin: 0.25rem 0.4rem;
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-decoration: none;
-  border: 1px solid #00bcd4;
-  background-color: #fff;
-  color: #00bcd4;
-  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
-}
-
-/* Hover state to match buttons elsewhere */
-.auth-links .auth-link:hover,
-.auth-links .auth-link:focus {
-  background-color: #00bcd4;
-  color: #000;
-  box-shadow: 0 3px 8px rgba(0, 188, 212, 0.5);
-  transform: translateY(-1px);
-  outline: none;
-}
-
-/* Slight tweak so the Account Management title doesn't fight the welcome */
-.auth-card .auth-title {
-  margin-top: 0.25rem;
-  margin-bottom: 1rem;
+  .upgradesList {
+    grid-template-columns: repeat(2, 200px);
+  }
 }

@@ -55,6 +55,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(utilities.checkJWTToken)
 
+
+
 /* ***********************
  * Routes
  *************************/
@@ -69,6 +71,7 @@ app.use("/account", accountRoute)
 app.use(async (req, res, next)  =>{
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
+
 
 /*
 * Express Error Handler
