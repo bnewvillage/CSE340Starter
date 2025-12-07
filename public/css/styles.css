@@ -606,7 +606,8 @@ nav li:hover {
 .edit-details-field select,
 .edit-details-field textarea,
 .delete-details-field select,
-.delete-details-field textarea {
+.delete-details-field textarea,
+.auth-field textarea {
   width: 100%;
   padding: 0.5rem 0.6rem;
   border-radius: 4px;
