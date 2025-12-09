@@ -184,6 +184,44 @@ Util.checkLogin = (req, res, next) => {
   }
 }
 
+Util.buildContactMessagesTable = async function (data) {
+  let table
+
+  if (data && data.length > 0) {
+    table = '<div class="contact-messages__table-wrapper">'
+    table += '<table class="contact-messages-table">'
+    table += "<thead>"
+    table += "<tr>"
+    table += "<th>Name</th>"
+    table += "<th>Email</th>"
+    table += "<th>Message</th>"
+    table += "</tr>"
+    table += "</thead>"
+    table += "<tbody>"
+
+    data.forEach((msg) => {
+      table += "<tr>"
+      table += "<td>" + msg.contact_name + "</td>"
+      table +=
+        '<td><a href="mailto:' +
+        msg.contact_email +
+        '">' +
+        msg.contact_email +
+        "</a></td>"
+      table += '<td class="message-cell"><pre>' + msg.contact_message + "</pre></td>"
+      table += "</tr>"
+    })
+
+    table += "</tbody>"
+    table += "</table>"
+    table += "</div>"
+  } else {
+    table = '<p class="notice">No messages submitted yet.</p>'
+  }
+
+  return table
+}
+
 
 Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req , res, next)).catch(next)
 

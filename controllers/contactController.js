@@ -38,5 +38,19 @@ contactController.submitMessage = async function (req, res, next) {
   }
 };
 
+contactController.buildMessagesPage = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  const messages = await contactModel.getAllMessages()
+
+  const contactMessagesTable = await utilities.buildContactMessagesTable(messages)
+
+  res.render("./contact/messages", {
+    title: "Contact Messages",
+    nav,
+    errors: null,
+    contactMessagesTable,
+  })
+}
+
 module.exports = contactController
 ;

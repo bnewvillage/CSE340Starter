@@ -17,4 +17,19 @@ async function submitMessage(
     }
 }
 
-module.exports = {submitMessage}
+async function getAllMessages() {
+  try {
+    const sql = `
+      SELECT contact_name, contact_email, contact_message
+      FROM contact
+      ORDER BY contact_name ASC;
+    `;
+    const data = await pool.query(sql);
+    return data.rows;
+  } catch (error) {
+    console.error("Error fetching messages:", error);
+    throw error;
+  }
+}
+
+module.exports = { submitMessage, getAllMessages };

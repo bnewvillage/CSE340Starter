@@ -12,4 +12,10 @@ router.post(
   utilities.handleErrors(contactController.submitMessage)
 );
 
+router.get(
+  "/messages",
+  utilities.checkUserPermissions,
+  utilities.handleErrors(contactController.buildMessagesPage)
+);
+
 module.exports = router;

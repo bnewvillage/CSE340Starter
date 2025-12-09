@@ -964,3 +964,83 @@ h1 {
     grid-template-columns: repeat(2, 200px);
   }
 }
+
+/*MESSAGES STYLES*/
+.contact-messages-card {
+  max-width: 900px;
+  width: 100%;
+}
+
+.contact-messages__table-wrapper {
+  width: 100%;
+  margin-top: 1.25rem;
+  overflow-x: auto;
+}
+
+.contact-messages-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.contact-messages-table thead {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+.contact-messages-table th,
+.contact-messages-table td {
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+
+.contact-messages-table thead th {
+  font-weight: 600;
+  border-bottom: 2px solid #00bcd4;
+}
+
+.contact-messages-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.contact-messages-table tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+.contact-messages-table tbody tr:hover {
+  background-color: #e8f8fb;
+}
+
+.contact-messages-table a {
+  font-weight: 600;
+  text-decoration: underline;
+  color: #0a58ca;
+  font-size: 0.9rem;
+}
+
+.contact-messages-table a:hover,
+.contact-messages-table a:focus {
+  color: #00bcd4;
+  outline: none;
+}
+
+.contact-messages-table .message-cell pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 480px) {
+  .contact-messages-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .contact-messages-table th,
+  .contact-messages-table td {
+    padding: 0.5rem 0.55rem;
+  }
+}
